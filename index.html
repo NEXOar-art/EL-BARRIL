@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#172a22" />
+  <meta name="description" content="Sabores de mar y cocina casera en El Barril, Mar Azul. Explorá la carta, armá tu pedido o reservá una mesa por WhatsApp." />
+  <title>El Barril · Sabores de mar en Mar Azul</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css" />
+  <script type="importmap">{"imports":{"three":"https://cdn.jsdelivr.net/npm/three@0.187.0/build/three.module.js"}}</script>
+  <script defer src="https://unpkg.com/lenis@1.1.20/dist/lenis.min.js"></script>
+  <script defer src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script defer src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <script defer src="app.js"></script>
+  <script type="module" src="three-effects.js"></script>
+</head>
+<body>
+  <div class="announcement"><span class="live-dot"></span> Mar Azul · cocina de mar y recetas caseras <a href="#carta">Conocé la carta <span>↗</span></a></div>
+  <header class="site-header">
+    <a class="brand" href="#inicio" aria-label="El Barril, inicio"><span class="brand-mark">EB</span><span><b>EL BARRIL</b><small>RESTAURANTE · MAR AZUL</small></span></a>
+    <nav class="main-nav" aria-label="Navegación principal"><a href="#historia">Nuestra cocina</a><a href="#carta">La carta</a><a href="#galeria">El lugar</a><a href="#reservas">Reservas</a></nav>
+    <button class="cart-trigger" id="open-cart"><span>Tu pedido</span><span class="cart-icon">＋</span><b class="cart-count" id="cart-count">0</b></button>
+  </header>
+  <main>
+    <section class="hero" id="inicio">
+      <div class="hero-image" role="img" aria-label="Plato de mariscos en El Barril"></div>
+      <div class="hero-shade"></div>
+      <canvas class="hero-three" id="hero-three" aria-hidden="true"></canvas>
+      <div class="hero-content">
+        <p class="eyebrow"><span></span> UN CLÁSICO DE MAR AZUL</p>
+        <h1>Sabores que<br><em>traen el mar</em><br>a la mesa.</h1>
+        <p class="hero-copy">Cazuelas para compartir, pastas hechas en casa y el tiempo justo para disfrutar.</p>
+        <div class="hero-actions"><a class="button button-cream" href="#carta">Explorar la carta <span>↓</span></a><a class="button-link" href="#reservas">Reservar una mesa <span>↗</span></a></div>
+      </div>
+      <div class="hero-meta"><span>AV. MAR DEL PLATA · ENTRE 34 Y 35</span><span>MAR AZUL, BUENOS AIRES</span></div>
+      <a class="scroll-cue" href="#historia"><span></span> DESLIZÁ PARA DESCUBRIR</a>
+    </section>
+
+    <section class="intro section-pad" id="historia">
+      <div class="intro-kicker"><span>01</span><span>UNA MESA, MUCHAS HISTORIAS</span></div>
+      <div class="intro-grid"><h2>El sabor del mar,<br><em>hecho en casa.</em></h2><div class="intro-text"><p>En el corazón de Mar Azul, cocinamos con esa mezcla de costa y sobremesa que invita a quedarse un rato más. La cazuela de mariscos es nuestra insignia; las pastas, nuestro orgullo.</p><a class="text-link" href="#carta">Descubrí nuestros clásicos <span>↗</span></a></div></div>
+      <div class="qualities"><div><b>01</b><span>Mariscos<br>para compartir</span></div><div><b>02</b><span>Pastas de<br>elaboración propia</span></div><div><b>03</b><span>Un lugar para<br>volver</span></div></div>
+    </section>
+
+    <section class="featured section-pad">
+      <div class="feature-photo"><img src="https://www.vivimarazul.com/fotos_cl/220_2_vivi_mar_azul.jpg" alt="Una de las especialidades de El Barril" loading="lazy"><span class="photo-tag">DE LA CASA</span></div>
+      <div class="feature-copy"><p class="eyebrow dark"><span></span> NUESTRO PLATO ESTRELLA</p><h2>La cazuela<br>que reúne<br><em>a todos.</em></h2><p>Una receta generosa, llena de sabores del mar y pensada para disfrutar sin apuro. Vení con hambre, pedila para compartir y dejá que la costa haga lo suyo.</p><a class="button button-dark" href="#carta" data-filter-link="Mar">Ver cocina de mar <span>↗</span></a></div>
+    </section>
+
+    <section class="menu-section section-pad" id="carta">
+      <div class="section-heading"><div><p class="eyebrow dark"><span></span> HECHO PARA DISFRUTAR</p><h2>La carta</h2></div><p>Clásicos de la casa y sabores de temporada.<br>Elegí algo rico y armá tu pedido.</p></div>
+      <div class="menu-note">Precios transcritos de las fotos del menú compartidas · disponibilidad y precios sujetos a confirmación del local.</div>
+      <div class="menu-layout"><aside class="menu-sidebar"><span class="sidebar-title">EXPLORÁ POR CATEGORÍA</span><div class="category-list" id="category-list"></div><div class="menu-help"><span>¿No sabés qué elegir?</span><a href="https://wa.me/5491168702510" target="_blank" rel="noreferrer">Te recomendamos por WhatsApp ↗</a></div></aside><div class="menu-content"><div class="menu-topline"><span id="menu-count">CARTA COMPLETA</span><label class="search-box"><span>⌕</span><input id="menu-search" type="search" placeholder="Plato, ingrediente, salsa o frase…" aria-label="Buscar platos, ingredientes, salsas y frases"></label></div><p class="search-hint">Buscá por nombre o frase: <button type="button" data-search="ajo y vino">ajo y vino</button><button type="button" data-search="sin tacc">sin TACC</button><button type="button" data-search="miel y mostaza">miel y mostaza</button></p><div class="dish-grid" id="dish-grid"></div></div></div>
+    </section>
+
+    <section class="gallery-section section-pad" id="galeria">
+      <div class="gallery-head"><div><p class="eyebrow"><span></span> UN RINCÓN PARA QUEDARSE</p><h2>La mesa está<br><em>servida.</em></h2></div><p>Un buen plato, una copa y la charla que se alarga.<br>Así se vive El Barril.</p></div>
+      <div class="gallery-grid">
+        <figure class="gallery-item gallery-tall"><img src="https://www.vivimarazul.com/fotos_cl/220_3_vivi_mar_azul.jpg" alt="Ambiente y sabores de El Barril en Mar Azul" loading="lazy"><figcaption>COCINA CON SABOR A COSTA</figcaption></figure>
+        <figure class="gallery-item"><img src="https://www.vivimarazul.com/fotos_cl/220_4_vivi_mar_azul.jpg" alt="Especialidad de la casa" loading="lazy"><figcaption>PARA COMPARTIR</figcaption></figure>
+        <figure class="gallery-item"><img src="https://www.vivimarazul.com/fotos_cl/220_5_vivi_mar_azul.jpg" alt="Un plato preparado en El Barril" loading="lazy"><figcaption>HECHO EN CASA</figcaption></figure>
+        <figure class="gallery-item gallery-wide"><img src="https://www.vivimarazul.com/fotos_cl/220_6_vivi_mar_azul.jpg" alt="Una mesa lista para disfrutar" loading="lazy"><figcaption>MAR AZUL, BUENOS AIRES</figcaption></figure>
+      </div>
+    </section>
+
+    <section class="visit-section section-pad" id="visitanos"><div class="visit-copy"><p class="eyebrow"><span></span> NOS ENCONTRAMOS EN MAR AZUL</p><h2>Tu próxima<br>mesa te espera.</h2><p>En pleno centro, a pasos de todo. Reservá con anticipación o pasá a visitarnos.</p><div class="visit-details"><div><span>DIRECCIÓN</span><b>Av. Mar del Plata, entre 34 y 35<br>Mar Azul, Buenos Aires</b></div><div><span>HORARIO PUBLICADO</span><b>Todos los días<br>11–16 h · 19–24 h</b></div><div><span>CONTACTO</span><a href="tel:+541168702510">+54 11 6870-2510</a></div></div><a class="button button-cream" href="https://maps.google.com/?q=El+Barril+Restaurante+Mar+Azul" target="_blank" rel="noreferrer">Cómo llegar <span>↗</span></a></div><div class="visit-photo"><img src="https://www.vivimarazul.com/fotos_cl/220_7_vivi_mar_azul.jpg" alt="El Barril Restaurante, Mar Azul" loading="lazy"><div class="map-card"><span>⌖</span><div><b>EL BARRIL</b><small>Mar del Plata · e/ 34 y 35</small></div><a href="https://maps.google.com/?q=El+Barril+Restaurante+Mar+Azul" target="_blank" rel="noreferrer">↗</a></div></div></section>
+
+    <section class="reservation section-pad" id="reservas"><div class="reservation-intro"><p class="eyebrow dark"><span></span> NOS GUARDAMOS UN LUGAR</p><h2>La buena mesa<br>empieza con<br><em>una reserva.</em></h2><p>Completá tus datos y te respondemos por WhatsApp para confirmar.</p><a href="tel:+541168702510">¿Preferís llamar? +54 11 6870-2510</a></div><form id="reservation-form" class="reservation-form"><div class="form-row"><label>Nombre y apellido<input name="name" autocomplete="name" required placeholder="¿Cómo te llamás?"></label><label>Cantidad de comensales<select name="guests" required><option value="">Elegí cantidad</option><option>1 persona</option><option>2 personas</option><option>3 personas</option><option>4 personas</option><option>5 personas</option><option>6 personas</option><option>7 personas</option><option>8 personas</option><option>9 personas</option><option>10 personas</option><option>11 personas</option><option>12 personas</option><option>Más de 12 personas</option></select></label></div><div class="form-row"><label>Día y fecha<input type="date" name="date" id="reservation-date" required><small class="date-weekday" id="date-weekday">Elegí la fecha para ver el día.</small></label><label>Horario<select name="time" required><option value="">Elegí un horario</option><optgroup label="Almuerzo"><option>11:00</option><option>11:30</option><option>12:00</option><option>12:30</option><option>13:00</option><option>13:30</option><option>14:00</option><option>14:30</option><option>15:00</option><option>15:30</option></optgroup><optgroup label="Cena"><option>19:00</option><option>19:30</option><option>20:00</option><option>20:30</option><option>21:00</option><option>21:30</option><option>22:00</option><option>22:30</option><option>23:00</option><option>23:30</option></optgroup></select></label></div><label>Correo electrónico <span class="optional">OPCIONAL</span><input type="email" name="email" autocomplete="email" placeholder="nombre@correo.com"></label><label>Algo que quieras contarnos <span class="optional">OPCIONAL</span><textarea name="notes" rows="3" placeholder="Preferencia de mesa, ocasión especial…"></textarea></label><button class="button button-dark submit-button" type="submit">Solicitar reserva por WhatsApp <span>↗</span></button><small class="form-footnote">La reserva queda confirmada cuando te respondamos.</small></form></section>
+  </main>
+  <footer class="footer"><div class="footer-top"><a class="brand brand-footer" href="#inicio"><span class="brand-mark">EB</span><span><b>EL BARRIL</b><small>RESTAURANTE · MAR AZUL</small></span></a><p>Sabores de mar.<br>Momentos para compartir.</p><div class="footer-contact"><a href="tel:+541168702510">+54 11 6870-2510</a><a href="https://wa.me/5491168702510" target="_blank" rel="noreferrer">Escribinos por WhatsApp ↗</a><a href="https://www.facebook.com/El-Barril-restaurante-323456914529498/" target="_blank" rel="noreferrer">Facebook ↗</a></div></div><div class="footer-bottom"><span>© EL BARRIL RESTAURANTE · MAR AZUL</span><span>AV. MAR DEL PLATA · ENTRE 34 Y 35</span><button class="admin-launch" id="admin-open" type="button">ADMINISTRACIÓN DE CARTA ↗</button></div></footer>
+
+  <div class="cart-backdrop" id="cart-backdrop"></div><aside class="cart-panel" id="cart-panel" aria-label="Tu pedido" aria-hidden="true"><div class="cart-head"><div><span class="eyebrow dark">EL BARRIL · PEDIDO</span><h3>Tu selección</h3></div><button class="close-cart" id="close-cart" aria-label="Cerrar carrito">×</button></div><div class="cart-items" id="cart-items"></div><div class="cart-empty" id="cart-empty"><span>✳</span><b>Todavía no hay nada en la mesa.</b><p>Elegí tus favoritos de la carta y los sumamos acá.</p><button class="text-link" id="browse-menu">Explorar la carta ↗</button></div><div class="cart-options"><label>Nombre y apellido<input id="order-name" autocomplete="name" required placeholder="Nombre de quien hace el pedido"></label><label>¿Cómo querés disfrutarlo?<select id="order-type"><option value="local">Comer en el local</option><option value="takeaway">Para llevar</option><option value="delivery">Delivery</option></select></label><div class="table-select" id="table-select"><label>Número de mesa<select id="table-number"><option value="">Elegí una mesa</option></select></label></div><div class="delivery-fields" id="delivery-fields"><label>Dirección de entrega<input id="delivery-address" autocomplete="street-address" placeholder="Calle, número y localidad"></label></div><div class="cart-total"><span>Total</span><b id="cart-total">$ 0</b></div><button class="button button-dark checkout-button" id="checkout">Enviar comanda por WhatsApp <span>↗</span></button><small>El local confirma disponibilidad y precios por WhatsApp.</small></div></aside>
+  <div class="admin-backdrop" id="admin-backdrop"></div><section class="admin-panel" id="admin-panel" aria-hidden="true" aria-label="Administración de carta"><div class="admin-head"><div><span class="eyebrow dark">EL BARRIL · ADMINISTRACIÓN</span><h3 id="admin-title">Acceso administrador</h3></div><button class="close-cart" id="admin-close" aria-label="Cerrar administración">×</button></div><div id="admin-login"><p>Ingresá el PIN para editar productos y precios.</p><label>Clave de administrador<input id="admin-pin" inputmode="numeric" type="password" maxlength="8" autocomplete="current-password" placeholder="PIN"></label><p class="pin-error" id="pin-error"></p><button class="button button-dark" id="admin-login-button">Ingresar <span>↗</span></button></div><div id="admin-editor" class="is-hidden"><p class="admin-warning">Los cambios se guardan en este navegador. La clave de esta versión está en el sitio; para restringirlo de forma segura al publicarlo hace falta autenticación en servidor.</p><div class="admin-toolbar"><button class="button button-dark" id="add-product">＋ Nuevo producto</button><button class="admin-export" id="export-menu">Descargar carta editable ↓</button><label class="admin-import">Importar carta<input type="file" id="import-menu" accept="application/json"></label></div><div class="admin-list" id="admin-list"></div></div></section>
+  <script defer src="admin.js"></script>
+</body>
+</html>

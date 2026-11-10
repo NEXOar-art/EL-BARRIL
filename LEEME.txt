@@ -1,0 +1,27 @@
+EL BARRIL RESTAURANTE — LANDING ANIMADA
+
+Contenido
+- index.html: landing completa.
+- styles.css: estilos, diseño adaptable y animaciones CSS.
+- app.js: carta, buscador, carrito, pedidos y reservas por WhatsApp.
+- admin.js: panel de edición con PIN 0608, persistencia local e importación/exportación.
+- three-effects.js: efecto 3D de luces flotantes en la portada.
+
+Cómo abrir
+Three.js carga como módulo y el navegador puede bloquearlo si se abre index.html con doble clic. La forma más sencilla es servir esta carpeta localmente:
+1. Abrí una terminal en esta carpeta.
+2. Ejecutá: py -m http.server 8000
+3. Abrí http://localhost:8000 en el navegador.
+
+También podés abrir la carpeta con Visual Studio Code y usar una extensión de servidor local.
+
+Dependencias e imágenes
+Three.js 0.187.0, GSAP, ScrollTrigger, Lenis y las fuentes/fotografías se cargan desde sus CDN/orígenes web. Se necesita conexión a Internet para ver todas las animaciones, tipografías y fotos. El código de animación propio está incluido en los archivos JavaScript.
+
+Animaciones incluidas
+- Motas 3D con Three.js en la portada, movimiento sutil ligado al puntero y pausa fuera de pantalla.
+- Animaciones de entrada por sección con GSAP y ScrollTrigger.
+- Desplazamiento suave con Lenis.
+- Transiciones y movimientos CSS, con soporte para preferencia de movimiento reducido.
+
+El PIN de administrador en esta versión estática funciona como acceso visual; la autenticación segura requiere un servidor.
